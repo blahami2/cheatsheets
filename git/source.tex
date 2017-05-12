@@ -1,5 +1,7 @@
 \documentclass[a3paper,margin=4pt,landscape]{article}
+\usepackage{times}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
 \usepackage[english]{babel}
 \usepackage{geometry}
  \geometry{
@@ -10,19 +12,101 @@
  top=20mm,
  bottom=20mm
  }
-
-
- 
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{multicol}
-\setlength{\columnsep}{1cm}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{xkeyval}
+\usepackage{xifthen}
+\usepackage[absolute]{textpos}
+\usepackage{listings}	
+
+\input{Basis/befehle}   % Befehle einbinden
+
+\pagestyle{fancy}
+
+\lhead{\colorbox{black}{\parbox[height=4cm]{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{Git Cheat Sheet}}}}}
+
+\newcommand{\cmd}[2]{
+	#1\\
+	\texttt{\textbf{\$ git #2}}\\
+	\\
+}
+
+\setlength{\columnsep}{0cm}
  
 \begin{document}
 
 \begin{multicols}{4}
-[
-\section{First Section}
-]
-Blablabla
+
+\section*{Prepare environment}
+
+\cmd{Deal with CR/LF issues (Windows)}{config --global core.autocrlf true}
+\cmd{Set name}{config --global user.name [name]}
+\cmd{Set email (in case of SSH issues)}{config --global user.email [email]}
+
+\section*{Create a repository}
+
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+
+\section*{Second}
+
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+
+\section*{Second}
+
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+
+\Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
+
+
+\section*{Second}
+
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+\cmd{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init [project\_name]}
+
+
 
 \end{multicols}
 
