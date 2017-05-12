@@ -1,4 +1,4 @@
-\documentclass[a3paper,margin=4pt,landscape]{article}
+\documentclass[12pt,a3paper,margin=4pt,landscape]{article}
 \usepackage{times}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc} 
@@ -29,7 +29,7 @@
 
 \pagestyle{fancy}
 
-\lhead{\colorbox{black}{\parbox[height=4cm]{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{Git Cheat Sheet}}}}}
+\lhead{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{\textbf{Git} Cheat Sheet}}}}}
 
 \newcommand{\cmd}[2]{
 	#1\\
@@ -43,8 +43,12 @@
 \newcommand{\alias}[2]{
 	\texttt{\textbf{#1}} #2\\
 }
-
-
+\newcommand{\sect}[2]{
+	\section*{\color{#1}{#2}}
+}
+\newcommand{\subsect}[2]{
+	\subsection*{\color{#1}{#2}}
+}
 
 \setlength{\columnsep}{0cm}
  
@@ -52,77 +56,69 @@
 
 \begin{multicols}{4}
 
-\section*{Prepare environment}
+\sect{Cerulean}{Prepare environment}
 
-\cmd{Deal with CR/LF issues (Windows)}{config --global core.autocrlf true}
-\cmd{Set name}{config --global user.name [name]}
-\cmd{Set email (in case of SSH issues)}{config --global user.email [email]}
-\cmdnoline{Set alias}{config --global alias.[alias] [git\_command]}
+\cmd{Use global config}{config -{}-global <key> <value>}
+\cmd{Deal with CR/LF issues (Windows)}{config core.autocrlf true}
+\cmd{Set name}{config user.name <name>}
+\cmd{Set email (in case of SSH issues)}{config user.email <email>}
+\cmdnoline{Set alias}{config alias.<alias> <cmd>}
 
-\subsection*{Common aliases}
+\subsect{MidnightBlue}{Common aliases}
 
 \alias{st}{status}
 \alias{br}{branch}
 \alias{ci}{commit}
 \alias{co}{checkout}
 
-\section*{Create a repository}
+\sect{TealBlue}{Create a repository}
 
-\cmd{Create new local repository}{init [project\_name]}
-\cmdnoline{Download from an existing repository}{clone [my\_url]}
+\cmd{Create new local repository}{init <project\_name>}
+\cmdnoline{Download from an existing repository}{clone <my\_url>}
 
-\section*{Second}
+\sect{NavyBlue}{Observe your repository}
 
 \cmd{List new or modified files}{status}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmdnoline{text}{command}
+\cmd{Show the changes to files not yet staged / staged}{diff [-{}-cached]}
+\cmd{Show all changes}{diff HEAD}
+\cmd{Show the changes between two commits}{diff <commit\_id1> <commit\_id2>}
+\cmd{List che change dates and authors to a file}{blame <file>}
+\cmd{Show the file changes for a commit id and/or file}{show <commit>:<file>}
+\cmd{Show full change history}{log}
+\cmd{Show change history for a file/directory including diffs}{log -p <file/directory>}
+\cmd{Show modify/delete conflict -- deleted by me}{diff ...origin/master -- <file>}
+\cmdnoline{Show modify/delete conflict -- deleted by them}{diff origin/master... -- <file>}
 
-\section*{Second}
+\sect{ForestGreen}{Working with branches}
 
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
+\cmd{List all local (local and remote) branches}{branch [-av]}
+\cmd{Switch to a different branch}{checkout <branch\_name>}
+\cmd{Switch to a new branch}{checkout -b <branch\_name>}
+\cmd{Create a new branch}{branch <branch\_name>}
+\cmd{Delete a branch}{branch -d <branch\_name>}
+\cmd{Delete a remote branch}{push <origin> -{}-delete <branch\_name>}
+\cmd{Merge a branch into the current branch}{merge <branch\_name>}
+\cmd{Merge a branch into the current branch without using fast-forward}{merge -{}-no-ff <branch\_name>}
+\cmd{Tag the current branch}{tag <tag>}
 
+\sect{ForestGreen}{Make a change}
+
+\cmd{Stage a file, ready for commit}{add <file>}
+\cmd{Add all files}{add -{}-all}
+\cmd{Commit all staged (tracked) files}{commit [-a] -m ``commit message''}
+\cmd{Change last commit}{commit -{}-amend}
+\cmd{Unstage file, keeping the file changes}{reset <file>}
+\cmdnoline{Revert everything to the last commit}{reset -{}-hard}
 
 \Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
 
 
-\section*{Second}
+\sect{Orange}{Second}
 
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmdnoline{text}{command}
 
 
 
