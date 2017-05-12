@@ -23,6 +23,7 @@
 \usepackage{xifthen}
 \usepackage[absolute]{textpos}
 \usepackage{listings}	
+\usepackage[compact]{titlesec}
 
 \input{Basis/befehle}   % Befehle einbinden
 
@@ -35,6 +36,15 @@
 	\texttt{\textbf{\$ git #2}}\\
 	\\
 }
+\newcommand{\cmdnoline}[2]{
+	#1\\
+	\texttt{\textbf{\$ git #2}}
+}
+\newcommand{\alias}[2]{
+	\texttt{\textbf{#1}} #2\\
+}
+
+
 
 \setlength{\columnsep}{0cm}
  
@@ -47,11 +57,50 @@
 \cmd{Deal with CR/LF issues (Windows)}{config --global core.autocrlf true}
 \cmd{Set name}{config --global user.name [name]}
 \cmd{Set email (in case of SSH issues)}{config --global user.email [email]}
+\cmdnoline{Set alias}{config --global alias.[alias] [git\_command]}
+
+\subsection*{Common aliases}
+
+\alias{st}{status}
+\alias{br}{branch}
+\alias{ci}{commit}
+\alias{co}{checkout}
 
 \section*{Create a repository}
 
 \cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
+\cmdnoline{Download from an existing repository}{clone [my\_url]}
+
+\section*{Second}
+
+\cmd{List new or modified files}{status}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmd{text}{command}
+\cmdnoline{text}{command}
 
 \section*{Second}
 
@@ -62,38 +111,7 @@
 \cmd{Create new local repository}{init [project\_name]}
 \cmd{Download from an existing repository}{clone [my\_url]}
 \cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
 
-\section*{Second}
-
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
-\cmd{Download from an existing repository}{clone [my\_url]}
-\cmd{Create new local repository}{init [project\_name]}
 
 \Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
 
