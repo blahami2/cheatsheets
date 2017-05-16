@@ -1,0 +1,108 @@
+\documentclass[12pt,a3paper,margin=4pt,landscape]{article}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel}
+\usepackage{geometry}
+ \geometry{
+ a3paper,
+ landscape,
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm
+ }
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{xkeyval}
+\usepackage{xifthen}
+\usepackage[absolute]{textpos}
+\usepackage{listings}	
+\usepackage[compact]{titlesec}
+\usepackage{changepage}
+
+\input{../shared/befehle}   % Befehle einbinden
+
+\pagestyle{fancy}
+
+% CheatSheet header
+\lhead{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{\textbf{Topic} Cheat Sheet}}}}}
+
+% edit command template
+\newcommand{\cmd}[2]{
+	#1\\
+	\texttt{\textbf{\$ app #2}}\\
+	\\
+}
+% command template for the last row in section to prevent useless spaces
+\newcommand{\cmdnoline}[2]{
+	#1\\
+	\texttt{\textbf{\$ app #2}}
+}
+\newcommand{\alias}[2]{
+	\texttt{\textbf{#1}} #2\\
+}
+% colored section header
+\newcommand{\sect}[2]{
+	\section*{\color{#1}{#2}}
+}
+% colored subsection header
+\newcommand{\subsect}[2]{
+	\subsection*{\color{#1}{#2}}
+}
+
+\setlength{\columnsep}{0cm}
+ 
+\begin{document}
+
+\begin{multicols}{4}
+
+\sect{Cerulean}{Section 1}
+
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmdnoline{Text}{command}
+
+\subsect{MidnightBlue}{Subsection 1}
+
+\sect{TealBlue}{Section 2}
+
+\sect{NavyBlue}{Section 3}
+
+\sect{ForestGreen}{Section 4}
+
+\sect{ForestGreen}{Section 5}
+
+%\Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
+
+
+\sect{Orange}{Section 6}
+
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmdnoline{Text}{command}
+
+% adjust around image
+\begin{adjustwidth}{0.5\columnwidth}{0pt}
+\sect{BrickRed}{Section 7}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmdnoline{Text}{command}
+\end{adjustwidth}
+
+
+\end{multicols}
+
+\end{document}
+
