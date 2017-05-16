@@ -24,6 +24,7 @@
 \usepackage[absolute]{textpos}
 \usepackage{listings}	
 \usepackage[compact]{titlesec}
+\usepackage{changepage}
 
 \input{Basis/befehle}   % Befehle einbinden
 
@@ -36,6 +37,11 @@
 	\texttt{\textbf{\$ git #2}}\\
 	\\
 }
+\newcommand{\cmdskip}[3]{
+	\hspace{#1}#2\\
+	\hspace{#1}\texttt{\textbf{\$ git #3}}\\
+	\\
+}
 \newcommand{\cmdnoline}[2]{
 	#1\\
 	\texttt{\textbf{\$ git #2}}
@@ -45,6 +51,9 @@
 }
 \newcommand{\sect}[2]{
 	\section*{\color{#1}{#2}}
+}
+\newcommand{\sectskip}[3]{
+	\hspace{#1}\section*{\color{#2}{#3}}
 }
 \newcommand{\subsect}[2]{
 	\subsection*{\color{#1}{#2}}
@@ -113,13 +122,21 @@
 \Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
 
 
-\sect{Orange}{Second}
+\sect{Orange}{Synchronize}
 
-\cmd{text}{command}
-\cmd{text}{command}
-\cmd{text}{command}
-\cmdnoline{text}{command}
+\cmd{Get the latest changes without merge}{fetch}
+\cmd{Fetch the latest changes and merge}{pull}
+\cmd{Fetch the latest changes and rebase}{pull -{}- rebase}
+\cmdnoline{Push local changes (and set upstream for later use)}{push [-u <upstream> <branch>]}
 
+\begin{adjustwidth}{0.5\columnwidth}{0pt}
+\sect{BrickRed}{Stash}
+\cmd{Save local changes into stash}{stash}
+\cmd{Apply changes from stash}{stash apply}
+\cmd{Save local changes as a new stash}{stash save}
+\cmd{List all the stashes}{stash list}
+\cmd{Clears all the stashes}{stash clear}
+\end{adjustwidth}
 
 
 \end{multicols}
