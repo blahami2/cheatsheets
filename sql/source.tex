@@ -1,0 +1,143 @@
+\documentclass[12pt,a3paper,margin=4pt,landscape]{article}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel}
+\usepackage{geometry}
+ \geometry{
+ a3paper,
+ landscape,
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm
+ }
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{xkeyval}
+\usepackage{xifthen}
+\usepackage[absolute]{textpos}
+\usepackage{listings}	
+\usepackage[compact]{titlesec}
+\usepackage{changepage}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xspace}
+
+\input{../shared/befehle}   % Befehle einbinden
+
+\pagestyle{fancy}
+
+% CheatSheet header
+\lhead{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{\textbf{Topic} Cheat Sheet}}}}}
+
+% edit command template
+\newcommand{\cmd}[2]{
+	#1\\
+	\texttt{#2}\\
+	\\
+}
+% command template for the last row in section to prevent useless spaces
+\newcommand{\cmdnoline}[2]{
+	#1\\
+	\texttt{#2}
+}
+\newcommand{\alias}[2]{
+	\texttt{#1} #2\\
+}
+% colored section header
+\newcommand{\sect}[2]{
+	\section*{\color{#1}{#2}}
+}
+% colored subsection header
+\newcommand{\subsect}[2]{
+	\subsection*{\color{#1}{#2}}
+}
+
+\newcommand{\pic}[3]{
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width=#2]{images/#1}
+	\end{center}
+	\caption{#3}
+	\end{figure}
+}
+
+\newcommand{\picsmall}[2]{
+	\pic{#1}{8cm}{#2}
+}
+\newcommand{\picmid}[2]{
+	\pic{#1}{12cm}{#2}
+}
+\newcommand{\picbig}[2]{
+	\pic{#1}{16cm}{#2}
+}
+\def\<#1>{\textbf{#1}}
+
+\setlength{\columnsep}{0cm}
+ 
+\begin{document}
+
+\begin{multicols}{4}
+
+\sect{Cerulean}{Basic queries}
+
+\cmd{Filter your columns}{\<SELECT> col1,col2,col3,... \<FROM> table1}
+\cmd{Filter the rows}{\<WHERE> col4 = 1 AND col5 = 2}
+\cmd{Aggregate the data}{\<GROUP> by ...}
+\cmd{Limit aggregated data}{\<HAVING> count(*) > 1}
+\cmdnoline{Order of the results}{\<ORDER BY> col2}
+
+\subsect{MidnightBlue}{Useful \<SELECT> keywords}
+
+\alias{\<DISTINCT>}{-- return unique results}
+\alias{\<BETWEEN> a \<AND> b}{-- limit the range}
+\alias{\<LIKE>}{-- pattern search within the column text}
+\alias{\<IN> (a,b,c)}{-- check if the value is contained)}
+
+\sect{NavyBlue}{Data modification}
+
+\cmd{Update specific data within the \<WHERE> clause}{\<UPDATE> table \<SET> c1 = \<WHERE> c2 = 2}
+\cmd{Insert values manually}{\<INSERT INTO> table1 (\<ID, FIRST\_NAME, LAST\_NAME>) \<VALUES> (1, 'Name','Surname');}
+
+\sect{TealBlue}{Joins}
+
+\picsmall{left_outer_join.png}{\<LEFT OUTER JOIN> -- all rows from table A, even if they do not exist in table B}
+\picsmall{inner_join.png}{\<INNER JOIN> -- rows that exist in both tables}
+\picsmall{right_outer_join.png}{\<RIGHT OUTER JOIN> -- all rows from table B, even if they do not exist in table A}
+
+
+\sect{ForestGreen}{Section 4}
+
+\sect{ForestGreen}{Section 5}
+
+%\Bild[width=1.5\columnwidth,boxwidth=1\columnwidth]{git-branching.png}{}{}
+
+
+\sect{Orange}{Section 6}
+
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmdnoline{Text}{command}
+
+% adjust around image
+\begin{adjustwidth}{0.5\columnwidth}{0pt}
+\sect{BrickRed}{Section 7}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmd{Text}{command}
+\cmdnoline{Text}{command}
+\end{adjustwidth}
+
+
+\end{multicols}
+
+\end{document}
+
