@@ -1,0 +1,149 @@
+\documentclass[12pt,a3paper,margin=4pt,landscape]{article}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+ \geometry{
+ a3paper,
+ landscape,
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm
+ }
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{xkeyval}
+\usepackage{xifthen}
+\usepackage[absolute]{textpos}
+\usepackage{listings}
+\usepackage[compact]{titlesec}
+\usepackage{changepage}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xspace}
+
+\input{../shared/befehle}   % Befehle einbinden
+
+\pagestyle{fancy}
+
+% CheatSheet header
+\lhead{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\Huge{\textbf{IntelliJ IDEA} Cheat Sheet}}}}}
+
+% edit command template
+\newcommand{\cmd}[2]{
+	#1\\
+	\texttt{#2}\\
+	\\
+}
+% command template for the last row in section to prevent useless spaces
+\newcommand{\cmdnoline}[2]{
+	#1\\
+	\texttt{#2}
+}
+\newcommand{\alias}[2]{
+	\texttt{#1} #2\\
+}
+% colored section header
+\newcommand{\sect}[2]{
+	\section*{\color{#1}{#2}}
+}
+% colored subsection header
+\newcommand{\subsect}[2]{
+	\subsection*{\color{#1}{#2}}
+}
+
+\newcommand{\pic}[3]{
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width=#2]{images/#1}
+	\end{center}
+	\caption{#3}
+	\end{figure}
+}
+
+\newcommand{\picsmall}[2]{
+	\pic{#1}{8cm}{#2}
+}
+\newcommand{\picmid}[2]{
+	\pic{#1}{12cm}{#2}
+}
+\newcommand{\picbig}[2]{
+	\pic{#1}{16cm}{#2}
+}
+\def\<#1>{\textbf{#1}}
+
+\setlength{\columnsep}{0cm}
+
+\begin{document}
+
+\begin{multicols}{4}
+
+\sect{Cerulean}{Code}
+
+\subsect{MidnightBlue}{Edit}
+
+\cmd{Extract code as variable/parameter/field/constant}{select and \<Ctrl + Alt + V/P/F/C>}
+\cmd{Change name}{select and \<Shift + F6>}
+\cmd{Edit code using multiple cursors}{select text and \<Alt + J>}
+\cmdnoline{Type on multiple lines at the same time}{\<Alt + Shift + Insert>}
+
+\subsect{TealBlue}{Move}
+
+\cmdnoline{Move class/subclass}{select and press \<F6>}
+
+\subsect{NavyBlue}{Insert}
+
+\cmd{Basic code-complete}{\<Ctrl + Space>}
+\cmd{Smart code-complete (based on context)}{\<Ctrl + Shift + Space>}
+\cmd{Smart statement-complete}{\<Ctrl + Shift + Enter>}
+\cmd{Insert comment (block)}{\<Ctrl (+ Shift) + />}
+\cmd{Override methods}{\<Ctrl + O>}
+\cmdnoline{Implement methods}{\<Ctrl + I>}
+
+\sect{Brown}{Selection}
+
+\cmdnoline{Context-aware selection (press multiple times)}{\<Ctrl + W>}
+
+\sect{Green}{View}
+
+% \subsect{ForestGreen}{Examine}
+\cmd{Highlight local usages}{\<Ctrl + Shift + F7>}
+\cmd{View usages}{\<Ctrl + Alt + F7>}
+\cmd{View javadoc}{\<Ctrl + Q>}
+\cmd{View recent files}{\<Ctrl + E>}
+\cmd{View recent changes}{\<Alt + Shift + C>}
+\cmd{Examine implementation}{select and \<Ctrl + Shift + I>}
+\cmdnoline{Examine call hierarchy}{select and \<Ctrl + Alt + H>}
+% \\\\\\\\
+\sect{Purple}{Navigation}
+
+\subsect{RedViolet}{Search}
+
+\cmd{Find class}{\<Ctrl + N>}
+\cmd{Find file}{\<Ctrl + Shift + N>}
+\cmd{Find symbol}{\<Ctrl + Shift + Alt + N>}
+\cmd{Find in path}{\<Ctrl + Shift + F>}
+\\
+\subsect{DarkOrchid}{Travel}
+
+\cmd{Go to declaration}{\<Ctrl + B>}
+\cmd{Go to implementation}{\<Ctrl + Alt + B>}
+\cmd{Navigate back}{\<Ctrl + Alt + LeftArrow>}
+\cmdnoline{Navigate forward}{\<Ctrl + Alt + RightArrow>}
+
+\sect{Orange}{Utilities}
+
+\cmd{Find action}{\<Ctrl + Shift + A>}
+\cmd{Show intetion actions}{\<Alt + Enter>}
+\cmdnoline{Open scratch file}{\<Ctrl + Alt + Shift + Insert>}
+
+\end{multicols}
+
+\end{document}
+
